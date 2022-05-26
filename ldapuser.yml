@@ -6,7 +6,8 @@
     grant_sudo: ttest
 
   tasks:
-    - name: makdir
+    - name: make directory
+      become: yes
       command: mkdir -p /var/local/adm && touch /var/local/adm/users
       ignore_errors: true
 
