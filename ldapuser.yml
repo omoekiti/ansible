@@ -6,17 +6,8 @@
     grant_sudo: ttest
 
   tasks:
-    - name: Create a directory if it does not exist
-      ansible.builtin.file:
-        path: /var/local/adm
-        state: directory
-        mode: '0755'
-      ignore_errors: true
-
-    - name: Creating an empty file
-      ansible.builtin.file:
-        path: /var/local/adm/users
-        state: touch
+    - name: makdir
+      command: mkdir -p /var/local/adm && touch /var/local/adm/users
       ignore_errors: true
 
     - name: Run a script with arguments (using 'cmd' parameter)
