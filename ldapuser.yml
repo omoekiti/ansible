@@ -1,13 +1,15 @@
 ---
 - hosts: all
   gather_facts: true
+  become: true
+  become_method: sudo
+  become_user: ansible
 
   vars:
     grant_sudo: ttest
 
   tasks:
     - name: make directory
-      become: yes
       command: mkdir -p /var/local/adm && touch /var/local/adm/users
       ignore_errors: true
 
